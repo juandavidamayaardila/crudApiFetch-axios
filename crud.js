@@ -103,8 +103,8 @@ d.addEventListener("submit", e=>{
 d.addEventListener("click", e=>{
     if(e.target.matches(".edit")){
         $title.textContent = "Editar Santo";
-        $form.nombre.value = e.target.dataset.name;
-        $form.constelacion.value = e.target.dataset.constelaccion;
+        $form.nombre.value = e.target.dataset.nombre;
+        $form.constelacion.value = e.target.dataset.constelacion;
         $form.id.value = e.target.dataset.id;
     }
 })

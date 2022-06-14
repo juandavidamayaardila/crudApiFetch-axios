@@ -1,18 +1,18 @@
-const d = document;
-$table = d.querySelector(".crud-table");
-$form = d.querySelector(".crud-form");
-$title = d.querySelector("crud-title");
-$template = d.querySelector("crud-template").content;
-$fragmento = d.createElementFragment();
-
+const d = document,
+$table = d.querySelector(".crud-table"),
+$form = d.querySelector(".crud-form"),
+$title = d.querySelector("crud-title"),
+$template = d.getElementById("crud-template").content,
+$fragmento = d.createDocumentFragment();
 
 const getAll = async () => {
     try {
-        let res = await axios.get("http://localhost:3000/santos")
+        let res = await axios.get("http://localhost:3000/santos"),
         json = await res.data;
+        console.log("json",json);
         json.forEach(element => {
             $template.querySelector(".nombre").textContent = element.nombre;
-            $template.querySelector(".costelacion").textContent = element.constelacion;
+            $template.querySelector(".constelacion").textContent = element.constelacion;
             $template.querySelector(".edit").dataset.id = element.id;
             $template.querySelector(".edit").dataset.name = element.nombre;
             $template.querySelector(".edit").dataset.constelacion = element.constelacion;
@@ -25,12 +25,12 @@ const getAll = async () => {
         $table.querySelector("tbody").appendChild($fragmento);
 
     } catch (error) {
-        let message = error.statusText || "Ocurrio un error";
-        $table.insertAdjacentHTML("afterend", `<p><b> Erro ${err.status}: ${message} </b></p>`);
+        let message = error.statusText || "Ocurrio un errorl";
+        $table.insertAdjacentHTML("afterend", `<p><b> Erro ${error.status}: ${message} </b></p>`);
     }
 }
 
-d.addEventListener("DOMContentLoaded", getAll);
+getAll();
 
 d.addEventListener("click", async e =>{
     if( e.target === $form){
@@ -42,7 +42,7 @@ d.addEventListener("click", async e =>{
                 let options = {
                     method: "POST",
                     Headers: {
-                        "Content-type": "aplication/json; charset=utf-8"
+                        "Content-type": "application/json; charset=utf-8"
                     },
                     data: JSON.stringify({
                         nombre: e.target.nombre.value,
@@ -54,7 +54,7 @@ d.addEventListener("click", async e =>{
                 location.reload();
             } catch (error) {
                 let message = error.statusText || "Ocurrio un error";
-                $form.insertAdjacentHTML("afterend", `<p><b> Erro ${err.status}: ${message} </b></p>`);
+                $form.insertAdjacentHTML("afterend", `<p><b> Erro ${error.status}: ${message} </b></p>`);
             }
         }else{
             //update put
@@ -62,7 +62,7 @@ d.addEventListener("click", async e =>{
                 let options = {
                     method: "PUT",
                     Headers: {
-                        "Content-type": "aplication/json; charset=utf-8"
+                        "Content-type": "application/json; charset=utf-8"
                     },
                     data: JSON.stringify({
                         nombre: e.target.nombre.value,
@@ -74,7 +74,7 @@ d.addEventListener("click", async e =>{
                 location.reload();
             } catch (error) {
                 let message = error.statusText || "Ocurrio un error";
-                $form.insertAdjacentHTML("afterend", `<p><b> Erro ${err.status}: ${message} </b></p>`);
+                $form.insertAdjacentHTML("afterend", `<p><b> Erro ${error.status}: ${message} </b></p>`);
             }
         }
     }
@@ -95,7 +95,7 @@ d.addEventListener("click", async e =>{
                 let options = {
                     method: "DELETE",
                     Headers: {
-                        "Content-type": "aplication/json; charset=utf-8"
+                        "Content-type": "application/json; charset=utf-8"
                     }
                 }
                 res = await axios(`http://localhost:3000/santos/${e.target.id.value}`, options);
