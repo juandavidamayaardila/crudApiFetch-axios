@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+</head>
+<body>
+    <h1>CRUD API REST FETCH ROLE</h1>
+    <section class="crud">
+        <article>
+            <h2> agregar role</h2>
+            <form class="crud-form">
+                <input type="text" name="nombre" placeholder="nombre" required>
+                <button type="submit"> Enviar</button>
+                <input type="hidden" name="id">
+            </form>
+        </article>
+        <article>
+            <h2>ver roles</h2>
+            <table class="crud-table">
+                <thead>
+                <tr>
+                    <th>nombre</th>
+                    <th>costelacion</th>
+                    <th>acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </article>
+    </section>
+    <template>
+        <tr>
+            <td class="nombre"></td>
+            <td class="costelacion"></td>
+           <td></td> 
+            <td>
+                <button class="edit"></button>
+                <button class="delete"></button>
+            </td>
+        </tr>
+    </template>
+</body>
+</html>
