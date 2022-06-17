@@ -25,7 +25,7 @@ const ajax = (options) => {
     });
 
     xhr.open(method || "GET", url);
-    xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
+    xhr.setRequestHeader("Content-type", "application/json; charset=utf-8"); //se adicionan las cabeceras
     xhr.send(JSON.stringify(data));
 };
 
@@ -37,7 +37,7 @@ const getAll = () => {
         success: (res) => {
             console.log(res);
             res.forEach(element => {
-                $template.querySelector(".nombre").textContent = element.nombre;
+                $template.querySelector(".nombre").textContent = element.nombre; //se adiciona los elementos a la tabla
                 $template.querySelector(".constelacion").textContent = element.constelacion;
                 $template.querySelector(".edit").dataset.id = element.id;
                 $template.querySelector(".edit").dataset.name = element.nombre;
@@ -59,7 +59,6 @@ const getAll = () => {
 };
 
 getAll();
-
 
 d.addEventListener("submit", e => {
     if (e.target === $form) {
