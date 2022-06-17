@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script type="module" src="crud_axios.js" async defer></script>
-    <title>Document</title>
-</head>
-<body>
-    <h1>CRUD santos ajax</h1>
-    <section class="crud">
-        <article>
-            <h2> agregar santos</h2>
-            <form class="crud-form">
-                <input type="text" name="nombre" placeholder="nombre" required>
-                <input type="text" name="constelacion" placeholder="constelacion" required>
-                <button type="submit"> Enviar</button>
-                <input type="hidden" name="id">
-            </form>
-        </article>
-        <article>
-            <h2>ver santos</h2>
-            <table class="crud-table">
-                <thead>
-                <tr>
-                   
-                    <th>nombre</th>
-                    <th>costelacion</th>
-                    <th>acciones</th>
-                </tr>
-                </thead>
-                <tbody>
-                </tbody>
-
-            </table>
-        </article>
-    </section>
-    <template id="crud-template">
-        <tr>
-            
-            <td class="nombre"></td>
-            <td class="constelacion"></td>
-           <td></td> 
-            <td>
-                <button class="edit">editar</button>
-                <button class="delete">eliminar</button>
-            </td>
-        </tr>
-    </template>
-</body>
-</html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://bootswatch.com/5/superhero/bootstrap.min.css">
+        <script type="module" src="js/crud_fetchs.js" async defer></script>
+        <title>Sofk</title>
+    </head>
+    
+    <body>
+        <h1>CRUD Santos Axios - Autor: Juan David Amaya</h1>
+        <section class="crud">
+            <article style="text-align: center;">
+                <h2> Agregar Santo</h2>
+                <form class="crud-form">
+                    <input type="text" name="nombre" placeholder="nombre" required>
+                    <input type="text" name="constelacion" placeholder="constelacion" required>
+                    <button type="submit" class="btn btn-success" style="font-size: small;"> Enviar</button>
+                    <input type="hidden" name="id">
+                </form>
+            </article>
+            <article >
+                <h2>Lista de Santos</h2>
+                <table class="crud-table table table-hover" style="text-align: center;" >
+                    <thead>
+                        <tr>
+    
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Costelacion</th>
+                            <th scope="col">Editar</th>
+                            <th scope="col">Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </article>
+        </section>
+        <template id="crud-template">
+            <tr class="table-active">
+    
+                <td class="nombre"></td>
+                <td class="constelacion"></td>
+    
+                <td>
+                    <button class="edit btn btn-warning">editar</button>
+                <td>
+                    <button class="delete btn btn-danger">eliminar</button>
+                </td>
+            </tr>
+        </template>
+    </body>
+    
+    </html>
